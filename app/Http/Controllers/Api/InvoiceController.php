@@ -87,6 +87,7 @@ class InvoiceController extends Controller
             $counter = Counter::where('key', 'invoice')->first();
             $invoice->number = $counter->prefix . $counter->value;
 
+            // metodo publico utilizado desde el helper HasManyRelations
             $invoice->storeHasMany([
                 'items' => $request->items
             ]);
@@ -158,6 +159,8 @@ class InvoiceController extends Controller
         });
 
         $invoice = FacadesDB::transaction(function () use ($invoice, $request) {
+
+            // metodo publico utilizado desde el helper HasManyRelations
             $invoice->updateHasMany([
                 'items' => $request->items
             ]);
