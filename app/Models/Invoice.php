@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasRelationships;
+use App\Helper\HasManyRelation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
     use HasFactory;
-    use HasRelationships;
+    use HasManyRelation;
 
     protected $guarded = [];
 
